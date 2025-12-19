@@ -1,12 +1,11 @@
 import { Button } from '@/components/ui/button'
 import React from 'react'
+import Hero from './_components/Hero'
 
 const HomePage = () => {
   return (
     <div>
-      <h1 className='text-4xl font-sans'> Create professional logos with AI.</h1>
-      <Button>  </Button> 
-      
+      <Hero/>
     </div>
   )
 }

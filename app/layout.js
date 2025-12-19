@@ -1,20 +1,10 @@
-import { Geist, Geist_Mono, Outfit } from "next/font/google";
+import { Host_Grotesk } from "next/font/google";
 import "./globals.css";
+import Provider from "@/app/provider"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-   weight: ["300", "400", "500", "600", "700"],
-});
-const outfit = Outfit({
-  variable: "--font-out",
- subsets :["latin"]
+const host_Grotesk = Host_Grotesk({
+ subsets:["latin"]
 })
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata = {
   title: "LogoForge-Ai",
@@ -25,9 +15,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} antialiased`}
+        className={host_Grotesk.className}
       >
+      <Provider>
         {children}
+     </Provider>
       </body>
     </html>
   );
