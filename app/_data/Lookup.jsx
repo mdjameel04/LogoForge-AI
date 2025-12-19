@@ -2,5 +2,15 @@ export default {
   HeroHeading: "Build Your Brand with AI",
   HeroSubheading: "Create logos for apps, businesses, and websites",
   HeroDesc: "Design unique, professional logos in seconds using our AI-powered tool. Simple, fast, and reliable.",
-  InputTitlePlaceholder: "Enter Your Logo Name"
+  InputTitlePlaceholder: "Enter Your Logo Name",
+  LogoTitle:'Logo Title',
+    LogoTitleDesc:'Add Your Business, App, or Website Name for a Custom Logo',
+    LogoDescTitle:'Describe Your Logo Vision',
+    LogoDescDesc:'Share your ideas, themes, or inspirations to create a logo that perfectly represents your brand or project.',
+    LogoIdeaTitle:'Select Your Design Idea',
+    LogoIdeaDesc:'Choose a design style that aligns with your vision, or skip to receive a random suggestion.',
+    LogoDesignTitle:'Choose Your Logo Style',
+    LogoDesignDesc:'Select the type of logo design that best represents your brands unique identity.',
+    LogoColorPaletteTitle:'Choose Your Color Palette',
+    LogoColorPaletteDesc:'Pick the colors that reflect your brands personality and create a lasting impression.',
 }
