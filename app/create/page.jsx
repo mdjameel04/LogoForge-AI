@@ -19,7 +19,7 @@ const CreatePage = () => {
   console.log(formData)
   }
   return (
-    <div className='mt-20 p-10 border rounded-xl 2xl:mx-72'>
+    <div className='mt-20 p-10 border rounded-xl '>
       {step==1? 
       <LogoTitle onHandleIputChange={(v)=>onHandleIputChange("title",v)} />:
        step==2?
