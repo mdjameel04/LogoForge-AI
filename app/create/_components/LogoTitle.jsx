@@ -4,7 +4,7 @@ import HeadingDescription from './HeadingDescription'
 import Lookup from '@/app/_data/Lookup'
 import { useSearchParams } from 'next/navigation'
 
-const LogoTitle = (onHandleIputChange) => {
+const LogoTitle = ({onHandleIputChange}) => {
   const searchParmas = useSearchParams();
   const [title, setTitle] = useState(searchParmas?.get('title'));
   return (
