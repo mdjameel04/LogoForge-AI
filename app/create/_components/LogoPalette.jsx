@@ -4,8 +4,8 @@ import HeadingDescription from './HeadingDescription'
 import Lookup from '@/app/_data/Lookup'
 import Colors from '@/app/_data/Colors'
 
-const LogoPalette = ({onHandleIputChange}) => {
-  const [selectedOption, setSelectedOption] = useState();
+const LogoPalette = ({onHandleInputChange,formData}) => {
+  const [selectedOption, setSelectedOption] = useState(formData?.palette);
   return (
     <div className='my-10'>
       <HeadingDescription 
@@ -13,13 +13,13 @@ const LogoPalette = ({onHandleIputChange}) => {
       description={Lookup.LogoColorPaletteDesc}
       />
        <div className='grid grid-cols-2 md:grid-cols-3 gap-5 mt-5'>
-        {Colors.map((Palette,index)=>(
-          <div key={index} className={`flex cursor-pointer p-1 ${selectedOption==Palette.name&& 'border-2 rounded-lg bg-primary' }`}>
-           {Palette?.colors.map((color,index)=>(
+        {Colors.map((palette,index)=>(
+          <div key={index} className={`flex cursor-pointer p-1 ${selectedOption==palette.name&& 'border-2 rounded-lg bg-primary' }`}>
+           {palette?.colors.map((color,index)=>(
             <div className='h-24 w-full'
             key={index}
-            onClick={()=>{setSelectedOption(Palette.name)
-              onHandleIputChange(Palette.name)
+            onClick={()=>{setSelectedOption(palette.name)
+              onHandleInputChange(palette.name)
             }}
             style={{
               backgroundColor: color

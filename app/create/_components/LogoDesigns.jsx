@@ -5,8 +5,8 @@ import Lookup from '@/app/_data/Lookup'
 import LogoDesign from '@/app/_data/LogoDesign'
 import Image from 'next/image'
 
-const LogoDesigns = () => {
-   const [selectedOption, setSelectedOption] = useState();
+const LogoDesigns = ({onHandleInputChange, formData}) => {
+   const [selectedOption, setSelectedOption] = useState(formData?.design?.title);
   return (
     <div className='my-10'>
       <HeadingDescription
@@ -17,7 +17,9 @@ const LogoDesigns = () => {
         <div className='grid grid-cols-2 md:grid-cols-3 gap-10 mt-10'>
       {LogoDesign.map((design, index)=>(
         <div key={index}
-        onClick={()=>setSelectedOption(design.title)}
+        onClick={()=>{setSelectedOption(design.title);
+       onHandleInputChange(design)
+        }}
 
         className={`p-1 hover:border-2 border-primary rounded-xl cursor-pointer  ${selectedOption==design.title&& 'border-2 rounded-xl border-primary'}`}
         >

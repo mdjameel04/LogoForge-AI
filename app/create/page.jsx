@@ -11,7 +11,7 @@ import LogoIdeal from './_components/LogoIdeal'
 const CreatePage = () => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState();
-  const onHandleIputChange = (field, value)=>{
+  const onHandleInputChange = (field, value)=>{
   setFormData(prev=>({
     ...prev,
     [field]: value
@@ -21,15 +21,20 @@ const CreatePage = () => {
   return (
     <div className='mt-20 p-10 border rounded-xl '>
       {step==1? 
-      <LogoTitle onHandleIputChange={(v)=>onHandleIputChange("title",v)} />:
+      <LogoTitle onHandleInputChange={(v)=>onHandleInputChange("title",v)} 
+      formData={formData}/>:
        step==2?
-       <LogoDesc onHandleIputChange={(v)=>onHandleIputChange("desc",v)} /> :
+       <LogoDesc onHandleInputChange={(v)=>onHandleInputChange("desc",v)} 
+       formdata={formData}/> :
        step==3?
-       <LogoPalette onHandleIputChange={(v)=>onHandleIputChange("palette",v)} />:
+       <LogoPalette onHandleInputChange={(v)=>onHandleInputChange("palette",v)} 
+       formData={formData}/>:
        step==4?
-       <LogoDesigns onHandleIputChange={(v)=>onHandleIputChange("design",v)}/>:
+       <LogoDesigns onHandleInputChange={(v)=>onHandleInputChange("design",v)}
+       formData={formData}/>:
        step==5?
-       <LogoIdeal onHandleIputChange={(v)=>onHandleIputChange("idea",v)}/>:
+       <LogoIdeal onHandleInputChange={(v)=>onHandleInputChange("idea",v)}
+       formData={formData}/>:
       null
       }
 

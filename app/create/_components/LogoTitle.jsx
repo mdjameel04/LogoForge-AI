@@ -4,7 +4,7 @@ import HeadingDescription from './HeadingDescription'
 import Lookup from '@/app/_data/Lookup'
 import { useSearchParams } from 'next/navigation'
 
-const LogoTitle = ({onHandleIputChange}) => {
+const LogoTitle = ({onHandleInputChange}) => {
   const searchParmas = useSearchParams();
   const [title, setTitle] = useState(searchParmas?.get('title'));
   return (
@@ -16,7 +16,7 @@ const LogoTitle = ({onHandleIputChange}) => {
         <input placeholder={Lookup.InputTitlePlaceholder}
         className='p-4 border w-full rounded-lg mt-5'
         defaultValue={title}
-        onChange={(e)=>onHandleIputChange(e.target.value)}
+        onChange={(e)=>onHandleInputChange(e.target.value)}
         />
         
     </div>
