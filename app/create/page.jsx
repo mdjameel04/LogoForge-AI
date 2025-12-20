@@ -21,7 +21,7 @@ const CreatePage = () => {
 
    <div className='flex items-center justify-between mt-10'>
    {step!=1 && <Button variant="outline" onClick={()=>setStep(step-1)}> <ArrowLeft/> Pervious </Button>}
-    <Button onClick={()=>setStep(step+1)}> <ArrowRight/> next </Button>
+    <Button onClick={()=>setStep(step+1)}> <ArrowRight/> Continue </Button>
    </div>
     </div>
   )
