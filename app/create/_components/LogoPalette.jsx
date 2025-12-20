@@ -4,7 +4,7 @@ import HeadingDescription from './HeadingDescription'
 import Lookup from '@/app/_data/Lookup'
 import Colors from '@/app/_data/Colors'
 
-const LogoPalette = () => {
+const LogoPalette = ({onHandleIputChange}) => {
   const [selectedOption, setSelectedOption] = useState();
   return (
     <div className='my-10'>
@@ -18,7 +18,9 @@ const LogoPalette = () => {
            {Palette?.colors.map((color,index)=>(
             <div className='h-24 w-full'
             key={index}
-            onClick={()=>setSelectedOption(Palette.name)}
+            onClick={()=>{setSelectedOption(Palette.name)
+              onHandleIputChange(Palette.name)
+            }}
             style={{
               backgroundColor: color
             }}>
