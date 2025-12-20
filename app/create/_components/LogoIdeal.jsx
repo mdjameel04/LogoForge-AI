@@ -23,7 +23,7 @@ function LogoIdea({formData,onHandleInputChange}) {
     .replace('{logoDesc}',formData.desc)
     .replace('{logoPrompt}',formData.design.prompt)
 
-    // console.log(PROMPT);
+    console.log(PROMPT);
     const result=await axios.post('/api/ai-design-ideas',{
       prompt:PROMPT
     })
