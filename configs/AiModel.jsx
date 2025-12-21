@@ -20,7 +20,7 @@ const generationConfig = {
   responseMimeType: "text/plain",
 };
 
-export const AiDesignIdea = model.startChat({
+export const AIDesignIdea = model.startChat({
   generationConfig,
   history: [
     {
