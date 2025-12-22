@@ -26,7 +26,7 @@ export default {
                 '⚫ Longer wait times',
                 '⚫ Wait time: 30 seconds to 3 minutes',
                 '⚫ Limited Design Options and Quality',
-                '⚫ Slow (Not Recommended)'
+                // '⚫ Slow (Not Recommended)'
             ],
             button:'Generate Free'
         },
@@ -40,7 +40,7 @@ export default {
                 '⚫ Only 5 Credits',
                 
             ],
-            button:'Generate Free'
+            button:'Generate for 1 credit '
         }
     ],
 }
