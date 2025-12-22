@@ -4,9 +4,10 @@ import HeadingDescription from './HeadingDescription'
 import Lookup from '@/app/_data/Lookup'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
+import { SignInButton, useUser } from '@clerk/nextjs'
 
 const PricingModel = ({formData}) => {
-
+const {user} = useUser()
   useEffect(()=>{
  if(formData?.title && typeof window!=="undefined"){
   localStorage.setItem("formData",JSON.stringify(formData))
@@ -31,7 +32,12 @@ height={60}/>
       <h2 className='text-lg mt-2' key={index} >{feature} </h2>
     ))}
    </div>
-    <Button className='mt-6'>{pricing.button} </Button>
+   {user?
+    <Button className='mt-6'>{pricing.button} </Button> :
+     <SignInButton mode='modal' forceRedirectUrl={'/generate-logo?type='+pricing.title}>
+          <Button className='mt-6'>{pricing.button} </Button>   
+     </SignInButton>
+      }
   </div>
       
  ))}
