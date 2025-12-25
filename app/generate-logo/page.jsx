@@ -1,9 +1,13 @@
-import React from 'react'
+"use client"
+import React, { useContext } from 'react'
+import { UserDetailContext } from '../_context/UserDetailContext'
 
-const route = () => {
+const GenrateLogo = () => {
+  const {userDetail, setUserDetail} = useContext(UserDetailContext)
+  console.log(userDetail) 
   return (
-    <div>generate logo</div>
+    <div> Generate logo for </div>
   )
 }
 
-export default route
+export default GenrateLogo

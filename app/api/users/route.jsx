@@ -23,7 +23,7 @@ export async function POST(req){
        })
             
         }
-         NextResponse.json(data)
+         return NextResponse.json(data)
 
     } catch (error) {
         
