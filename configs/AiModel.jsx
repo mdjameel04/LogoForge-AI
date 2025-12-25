@@ -1,48 +1,41 @@
-const {
-  GoogleGenerativeAI,
-  HarmCategory,
-  HarmBlockThreshold,
-} = require("@google/generative-ai");
+import OpenAI from "openai";
 
-const apiKey = process.env.GEMINI_API_KEY;
-
-const genAI = new GoogleGenerativeAI(apiKey);
-
-const model = genAI.getGenerativeModel({
-  model: "gemini-2.0-flash-exp",
+const openai = new OpenAI({
+  baseURL: "https://openrouter.ai/api/v1",
+  apiKey: process.env.OPENROUTER_API_KEY,
 });
 
-const generationConfig = {
-  temperature: 1,
-  topP: 0.95,
-  topK: 40,
-  maxOutputTokens: 8192,
-  responseMimeType: "text/plain",
+export const AIDesignIdea = {
+  async sendMessage(prompt) {
+    const response = await openai.chat.completions.create({
+      model: "openai/gpt-4o-mini", // fast & stable
+      temperature: 1,
+      messages: [
+        {
+          role: "system",
+          content:
+            "You are a logo design assistant. Always respond ONLY in valid JSON.",
+        },
+        {
+          role: "user",
+          content: `
+Based on Logo of type Modern Mascot Logos.
+Generate logo design ideas in JSON format like this:
+
+{
+  "ideas": ["idea 1", "idea 2"]
+}
+
+User prompt: ${prompt}
+          `,
+        },
+      ],
+    });
+
+    return {
+      response: {
+        text: () => response.choices[0].message.content,
+      },
+    };
+  },
 };
-
-export const AIDesignIdea = model.startChat({
-  generationConfig,
-  history: [
-    {
-      role: "user",
-      parts: [
-        {
-          text: "Based on Logo of type Modern Mascot Logos Generate logo design ideas in JSON format.",
-        },
-      ],
-    },
-    {
-      role: "model",
-      parts: [
-        {
-          text: "```json\n{\n  \"ideas\": [\n    \"Chef Elephant with playful hat\",\n    \"Modern fox mascot with clean lines\",\n    \"Friendly robot mascot logo\",\n    \"Bold lion mascot for brand identity\",\n    \"Minimal panda mascot logo\"\n  ]\n}\n```",
-        },
-      ],
-    },
-  ],
-});
-
-
-//   const result = await chatSession.sendMessage("INSERT_INPUT_HERE");
-//   return result.response.text();
-
